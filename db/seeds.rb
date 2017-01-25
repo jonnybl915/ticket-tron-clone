@@ -24,3 +24,4 @@ Developer.create([
     # { name: Faker::GameOfThrones.character, retired_at: 2.months.ago },
     # { name: Faker::GameOfThrones.character, retired_at: 3.months.ago },
 ])
+
