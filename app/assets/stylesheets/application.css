@@ -13,11 +13,40 @@
  *= require_tree .
  *= require_self
  */
+* { box-sizing: border-box;}
 
+* { font-family: "Helvetica Neue", "Arial", sans-serif;}
+th {
+    padding-bottom: 10px;
+}
+.navbar-links li:hover {
+    background: #c8cfd3;
+}
 .navbar-links li {
     display: inline-block;
 }
+.navbar-links a {
+    text-decoration: none;
+}
+.nav-link {
+    border: 1px solid #d3cdbf;
+    border-radius: 9px;
+    padding: 2px;
 
+}
 .error {
     border: 1px solid red;
+}
+.header {
+    text-align: center;
+}
+.ticketron {
+    padding-left: 45px;
+}
+td {
+    padding: 5px;
+}
+.dev-head {
+    padding-left: 20px;
+    text-decoration: underline;
 }

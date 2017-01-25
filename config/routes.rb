@@ -15,8 +15,14 @@ Rails.application.routes.draw do
   get '/developers' => 'developers#index'
   get '/developers/new' => 'developers#new'
   post '/developers' => 'developers#create'
-  delete '/developers/:developer_id' => 'developers#remove'
   get '/developers/:id' => 'developers#show'
+  delete '/developers/:id/remove' => 'developers#remove'
+  patch 'issues/:id/assign' => 'issues#assign'
+  post '/comments' => 'comments#create'
+
+  # Followers
+  post '/issues/:id/followers' => 'issues#follow'
+  delete 'issues/:id/followers' => 'issues#unfollow'
 
   # root 'issues#new'
 

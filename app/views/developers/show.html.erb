@@ -3,7 +3,9 @@
 <% if @developer.retired? %>
     <p>Retired at <%= @developer.retired_at %></p>
 <% else %>
-    <%= form_tag "/developers/#{@developer.id}/retire" do %>
+    <%= form_tag "/developers/#{@developer.id}/remove", method: :delete do %>
         <button>Retire</button>
     <% end %>
 <% end %>
+
+<button><a style="text-decoration: none" href="/developers">Go Back...</a></button>

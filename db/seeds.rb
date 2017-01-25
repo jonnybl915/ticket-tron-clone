@@ -7,8 +7,20 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Developer.create([
-    { name: 'Tom', retired_at: 6.months.ago },
-    { name: 'Dana', retired_at: 3.months.ago },
-    { name: 'James' },
-    { name: 'Kylie' }
+    { name: Faker::GameOfThrones.character},
+    { name: Faker::GameOfThrones.character},
+    { name: Faker::GameOfThrones.character},
+    { name: Faker::GameOfThrones.character},
+    { name: Faker::GameOfThrones.character},
+    { name: Faker::GameOfThrones.character},
+    { name: Faker::GameOfThrones.character},
+    # { name: Faker::GameOfThrones.character, retired_at: 3.months.ago },
+    # { name: Faker::GameOfThrones.character, retired_at: 2.months.ago },
+    # { name: Faker::GameOfThrones.character, retired_at: 5.months.ago },
+    # { name: Faker::GameOfThrones.character, retired_at: 6.months.ago },
+    # { name: Faker::GameOfThrones.character, retired_at: 6.months.ago },
+    # { name: Faker::GameOfThrones.character, retired_at: 9.months.ago },
+    # { name: Faker::GameOfThrones.character, retired_at: 1.months.ago },
+    # { name: Faker::GameOfThrones.character, retired_at: 2.months.ago },
+    # { name: Faker::GameOfThrones.character, retired_at: 3.months.ago },
 ])

@@ -4,16 +4,16 @@ class DevelopersController < ApplicationController
   end
 
   def show
-    @devloper = Developer.find params[:id]
+    @developer = Developer.find params[:id]
   end
 
   def new
   end
 
   def create
-    if params[:name]
+    if params[:full_name].present?
       dev = Developer.new
-      dev.name = params[:name]
+      dev.name = name
       dev.save
 
       redirect_to "/developers/#{dev.id}"
@@ -22,7 +22,6 @@ class DevelopersController < ApplicationController
       render :new
     end
   end
-
   def remove
     dev = Developer.find params[:id]
     dev.retire

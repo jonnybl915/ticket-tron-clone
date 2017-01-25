@@ -1,5 +1,57 @@
-<a href="/all">Back</a>
-
 <h1><%= @issue.title %></h1>
 
+<p>Followers: <%= @issue.followers.count %></p>
+
+<% if current_user.is_following?(@issue) %>
+    <%= form_tag "/issues/#{@issue.id}/followers", method: :delete do %>
+        <button>Unfollow</button>
+    <% end %>
+<% else %>
+    <%= form_tag "/issues/#{@issue.id}/followers" do %>
+        <button>Follow</button>
+    <% end %>
+<% end %>
+
+
 <p><%= @issue.description %></p>
+
+<%= form_tag "/issues/#{@issue.id}/assign", method: :patch do %>
+    <!--<input type="number" name="developer_id">-->
+    <select name="developer_id" id="">
+      <% if @issue.assignee_id == nil %>
+          <option></option>
+          <% end %>
+    <% Developer.active.each do |developer| %>
+        <option value="<%= developer.id%>">
+          <%= developer.name %>
+        </option>
+        <% end %>
+    </select>
+    <button>Assign</button>
+<% end %>
+
+<% if @issue.assignee %>
+    <p>Assigned to: <%= @issue.assignee.name %></p>
+<% end %>
+
+<hr>
+<h4>Comments</h4>
+
+<%= form_tag '/comments/', method: :post do %>
+    <textarea name="contents" id="" cols="20" rows="2"></textarea>
+    <input type="hidden" name="issue_id" value="<%= @issue.id%>">
+    <button>Post</button>
+<% end %>
+
+<% @issue.comments.each do |c| %>
+    <div class="well">
+      <strong><%= c.poster.email %></strong>
+      <p><%= time_ago_in_words c.created_at %> ago</p>
+      <p><%= c.contents %></p>
+    </div>
+<% end %>
+
+
+
+
+<a href="/all">Back</a>
